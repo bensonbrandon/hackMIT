@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">hackMIT</string>
+
+    <string name="warning">If this is a medical emergency, make sure to call MIT Police. This app is not a replacement for professional emergency response systems.</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_CPR">CPR Emergency</string>
+    <string name="button_EMT">Non-CPR Medical Emergency</string>
+    <string name="button_MedLink">Non Urgent Medical Assistance</string>
+</resources>
