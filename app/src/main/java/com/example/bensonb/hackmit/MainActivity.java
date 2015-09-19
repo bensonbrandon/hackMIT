@@ -1,9 +1,12 @@
 package com.example.bensonb.hackmit;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,8 +33,14 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+
         }
 
         return super.onOptionsItemSelected(item);
+
+    }
+    public void toSendInfo(View view){
+        Intent intent = new Intent(this, SendInfoActivity.class);
+        startActivity(intent);
     }
 }

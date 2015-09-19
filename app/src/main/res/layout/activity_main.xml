@@ -11,16 +11,19 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:text="@string/button_CPR"/>
+        android:text="@string/button_CPR"
+        android:onClick = "toSendInfo"/>
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:text="@string/button_EMT"/>
+        android:text="@string/button_EMT"
+        android:onClick = "toSendInfo"/>
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:text="@string/button_MedLink"/>
+        android:text="@string/button_MedLink"
+        android:onClick = "toSendInfo"/>
 
 </LinearLayout>
