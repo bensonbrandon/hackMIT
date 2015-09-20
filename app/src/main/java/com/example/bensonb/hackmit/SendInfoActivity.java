@@ -20,11 +20,8 @@ public class SendInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sendinfo);
     }
+
     public void toWait(View view) {
-        Intent intent = new Intent(this, WaitActivity.class);
-        startActivity(intent);
-    }
-    public void toMain(View view) {
         // get info from text boxes
         EditText complaint = (EditText)findViewById(R.id.complaint);
         String complaintString = complaint.getText().toString();
@@ -54,6 +51,10 @@ public class SendInfoActivity extends Activity {
         }
 
         Intent intent = new Intent(this, WaitActivity.class);
+        startActivity(intent);
+    }
+    public void toMain(View view){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
