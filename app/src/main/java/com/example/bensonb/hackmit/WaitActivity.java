@@ -44,6 +44,8 @@ public class WaitActivity extends Activity {
                                     requestObject.fetch();
                                     if (requestObject.getBoolean("accepted")) {
                                         updateRequestStatus(requestObject.getInt("eta"));
+                                    } else {
+                                        badRequestStatus();
                                     }
                                 } catch (ParseException pe) {
                                     Log.d("WaitActivity", "failed to fetch latest data");
@@ -78,6 +80,20 @@ public class WaitActivity extends Activity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    void badRequestStatus()
+    {
+        final TextView statusBox =(TextView)findViewById(R.id.request_status);
+        statusBox.post(new Runnable() {
+            @Override
+            public void run() {
+                String status = statusBox.getText().toString();
+                if (status.startsWith("Your request")) {
+                    statusBox.setText("Your request's acceptor had to cancel. Searching for new volunteer...");
+                }
+            }
+        });
     }
 
     void updateRequestStatus(Integer minutes)
