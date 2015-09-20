@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
 import com.parse.ParseObject;
 import com.parse.ParsePush;
 
@@ -22,6 +21,10 @@ public class SendInfoActivity extends Activity {
         setContentView(R.layout.activity_sendinfo);
     }
     public void toWait(View view) {
+        Intent intent = new Intent(this, WaitActivity.class);
+        startActivity(intent);
+    }
+    public void toMain(View view) {
         // get info from text boxes
         EditText complaint = (EditText)findViewById(R.id.complaint);
         String complaintString = complaint.getText().toString();
