@@ -10,15 +10,17 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/chief_complaint_prompt"/>
+        android:hint="@string/chief_complaint_prompt"
+        android:id = "@+id/complaint" />
 
     <TextView android:text="@string/location" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/location_prompt"/>
+        android:hint="@string/location_prompt"
+        android:id="@+id/location"/>
 
     <TextView android:text="@string/additional_info" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -26,7 +28,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/additional_info_prompt"/>
+        android:hint="@string/additional_info_prompt"
+        android:id="@+id/details" />
 
     <Button
         android:layout_width="match_parent"
