@@ -90,7 +90,7 @@
                 <!--
                   IMPORTANT: Change "com.parse.starter" to match your app's package name.
                 -->
-                <category android:name="com.parse.starter" />
+                <category android:name="com.example.bensonb.hackmit" />
             </intent-filter>
         </receiver>
     </application>

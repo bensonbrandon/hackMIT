@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParsePush;
+import com.parse.SaveCallback;
 
 import org.json.JSONObject;
 
@@ -26,29 +29,41 @@ public class SendInfoActivity extends Activity {
         EditText complaint = (EditText)findViewById(R.id.complaint);
         String complaintString = complaint.getText().toString();
         EditText location = (EditText)findViewById(R.id.location);
-        String locationString = location.getText().toString();
+        final String locationString = location.getText().toString();
         EditText details = (EditText)findViewById(R.id.details);
         String detailsString = details.getText().toString();
 
         // create ParseObject request
-        ParseObject request = new ParseObject("Request");
+        final ParseObject request = new ParseObject("Request");
         request.put("issue", complaintString);
         request.put("location", locationString);
         request.put("details", detailsString);
         request.put("accepted", false);
-        request.saveInBackground();
-
-        // send push notification
-        ParsePush push = new ParsePush();
-        push.setChannel("EMT");
-        push.setMessage("urgent request at " + request.get("location"));
-        try {
-            JSONObject data = new JSONObject().put("id", request.get("objectId"));
-            push.setData(data);
-            push.sendInBackground();
-        } catch (Exception e) {
-            Log.d("SendInfoActivity", "Failed to create request data for push notification.");
-        }
+        request.saveInBackground(new SaveCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    // Saved successfully.
+                    // send push notification
+                    Log.d("SendInfoActivity", "About to send push notification");
+                    ParsePush push = new ParsePush();
+                    String channel = getIntent().getStringExtra("CHANNEL");
+                    push.setChannel(channel);
+                    try {
+                        JSONObject data = new JSONObject();
+                        data.put("id", request.getObjectId());
+                        data.put("alert", "urgent request at " + locationString);
+                        Log.d("PushNotification", data.toString());
+                        push.setData(data);
+                        push.sendInBackground();
+                    } catch (Exception exc) {
+                        Log.d("SendInfoActivity", "Failed to create request data for push notification.");
+                    }
+                } else {
+                    // The save failed.
+                    Log.d("SendInfoActivity", "Error updating user data: " + e);
+                }
+            }
+        });
 
         Intent intent = new Intent(this, WaitActivity.class);
         startActivity(intent);

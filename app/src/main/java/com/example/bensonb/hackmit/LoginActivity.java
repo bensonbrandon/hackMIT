@@ -26,6 +26,7 @@ public class LoginActivity extends Activity {
         EditText username = (EditText)findViewById(R.id.username);
         String userString = username.getText().toString();
         EditText password = (EditText)findViewById(R.id.password);
+        Log.d("hello", "no");
         ParseUser.logInInBackground(userString, password.getText().toString(), new LogInCallback() {
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {

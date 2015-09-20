@@ -18,8 +18,21 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
-    public void toSendInfo(View view) {
+    public void toSendEMTInfo(View view) {
         Intent intent = new Intent(this, SendInfoActivity.class);
+        intent.putExtra("CHANNEL", "EMT");
+        startActivity(intent);
+    }
+
+    public void toSendMLinkInfo(View view) {
+        Intent intent = new Intent(this, SendInfoActivity.class);
+        intent.putExtra("CHANNEL", "MedLink");
+        startActivity(intent);
+    }
+
+    public void toSendCPRInfo(View view) {
+        Intent intent = new Intent(this, SendInfoActivity.class);
+        intent.putExtra("CHANNEL", "CPR");
         startActivity(intent);
     }
 }

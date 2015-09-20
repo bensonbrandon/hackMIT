@@ -12,19 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CPR Emergency"
-        android:onClick = "toSendInfo"/>
+        android:onClick = "toSendCPRInfo"/>
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Non-CPR Emergency"
-        android:onClick = "toSendInfo"/>
+        android:onClick = "toSendEMTInfo"/>
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Non-Urgent Medical Assistance"
-        android:onClick = "toSendInfo"/>
+        android:onClick = "toSendMLinkInfo"/>
 
 
     <TextView android:text="If you are a volunteer responder, login here:"
