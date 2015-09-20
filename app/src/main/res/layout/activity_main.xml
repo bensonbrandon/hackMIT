@@ -3,27 +3,39 @@
     android:layout_height="match_parent"
     android:orientation = "vertical">
 
-    <TextView android:text="@string/warning" android:layout_width="match_parent"
+    <TextView android:text="If there is a medical emergency, make sure you have called 911 or MIT EMS. This app is not a replacement for professional emergency response systems." android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:id="@+id/textView" />
+        android:id="@+id/textView" />
 
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:text="@string/button_CPR"
+        android:layout_height="wrap_content"
+        android:text="CPR Emergency"
         android:onClick = "toSendInfo"/>
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:text="@string/button_EMT"
+        android:layout_height="wrap_content"
+        android:text="Non-CPR Emergency"
         android:onClick = "toSendInfo"/>
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:text="@string/button_MedLink"
+        android:layout_height="wrap_content"
+        android:text="Non-Urgent Medical Assistance"
         android:onClick = "toSendInfo"/>
+
+
+    <TextView android:text="If you are a volunteer responder, login here:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:onClick = "toLogin"/>
+
+
 
 </LinearLayout>
