@@ -59,6 +59,8 @@ public class SendInfoActivity extends FragmentActivity {
         request.put("details", detailsString);
         request.put("accepted", false);
         request.put("valid", true);
+        final String channel = getIntent().getStringExtra("CHANNEL");
+        request.put("channel", channel);
         request.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {
 
@@ -67,7 +69,6 @@ public class SendInfoActivity extends FragmentActivity {
                     // send push notification
                     Log.d("SendInfoActivity", "About to send push notification");
                     ParsePush push = new ParsePush();
-                    String channel = getIntent().getStringExtra("CHANNEL");
                     push.setChannel(channel);
                     try {
                         JSONObject data = new JSONObject();
