@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
 
     public void toSendMLinkInfo(View view) {
         Intent intent = new Intent(this, SendInfoActivity.class);
-        intent.putExtra("CHANNEL", "MedLink");
+        intent.putExtra("CHANNEL", "Medlink");
         startActivity(intent);
     }
 

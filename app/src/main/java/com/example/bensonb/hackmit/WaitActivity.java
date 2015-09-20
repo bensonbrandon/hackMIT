@@ -74,6 +74,7 @@ public class WaitActivity extends Activity {
             public void done(ParseObject request, ParseException e) {
                 if (e == null) {
                     request.put("valid", false);
+                    request.saveInBackground();
                 }
             }
         });

@@ -97,6 +97,11 @@ public class AcceptRejectActivity extends FragmentActivity {
         query.getInBackground(requestId, new GetCallback<ParseObject>() {
             public void done(ParseObject request, ParseException e) {
                 if (e == null) {
+                    try {
+                        request.fetch();
+                    } catch (ParseException exp) {
+                        Log.d("AcceptReject", "failed to fetch new request data");
+                    }
                     if (request.getBoolean("accepted") || !request.getBoolean("valid")) {
                         Log.d("AcceptReject", "request already accepted or cancelled");
                         Intent intent = new Intent(ctx, AcceptRejectFailActivity.class);

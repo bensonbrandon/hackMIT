@@ -33,6 +33,9 @@ public class LoginActivity extends Activity {
                     // Hooray! The user is logged in.
                     // deal with subscription to channels and installation stuff
                     ParseInstallation.getCurrentInstallation().saveInBackground();
+                    ParsePush.unsubscribeInBackground("EMT");
+                    ParsePush.unsubscribeInBackground("Medlink");
+                    ParsePush.unsubscribeInBackground("CPR");
                     if (user.getBoolean("isEMT")) {
                         ParsePush.subscribeInBackground("EMT");
                     }
