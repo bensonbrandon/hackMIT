@@ -51,6 +51,9 @@ public class AcceptRejectActivity extends FragmentActivity {
                     if (e == null) {
                         if (!request.getBoolean("accepted") && request.getBoolean("valid")) {
                             updateFields(request);
+                        } else {
+                            Intent intent = new Intent(ctx, AcceptRejectFailActivity.class);
+                            startActivity(intent);
                         }
                     }
                 }
@@ -96,6 +99,8 @@ public class AcceptRejectActivity extends FragmentActivity {
                 if (e == null) {
                     if (request.getBoolean("accepted") || !request.getBoolean("valid")) {
                         Log.d("AcceptReject", "request already accepted or cancelled");
+                        Intent intent = new Intent(ctx, AcceptRejectFailActivity.class);
+                        startActivity(intent);
                     } else {
                         request.put("accepted", true);
                         EditText etaBox = (EditText) findViewById(R.id.minutes);
@@ -115,7 +120,10 @@ public class AcceptRejectActivity extends FragmentActivity {
     }
 
     public void rejectRequest(View view) {
-        toMain(view);
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override
