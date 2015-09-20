@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">HackMITProject</string>
 
+    <string name="warning">warning</string>
+    <string name="button_CPR">CPR Emergency</string>
+    <string name="button_EMT">Non CPR Emergency</string>
+    <string name="button_MedLink">Not an emergency</string>
     <string name="action_settings">Settings</string>
     <string name="chief_complaint">Chief Complaint: (e.g. difficulty breathing, broken leg)</string>
     <string name="chief_complaint_prompt">Enter chief complaint here</string>
