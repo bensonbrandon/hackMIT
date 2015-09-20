@@ -13,38 +13,38 @@
     <TextView
         android:text="@string/chief_complaint" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Patient's Chief Complaint"
         android:id="@+id/complaint"
-        />
+        android:textColor="#000000" />
 
     <TextView
         android:text="@string/location" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Patient's Location"
         android:id="@+id/patientlocation"
-        />
+        android:textColor="#000000" />
 
     <TextView
         android:text="@string/additional_info" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Patient's Additional Info"
         android:id="@+id/additionalinfo"
-        />
+        android:textColor="#000000" />
 
     <EditText
         android:layout_width="match_parent"
@@ -64,7 +64,8 @@
             android:text="Accept"
             android:layout_weight="1"
             android:onClick="acceptRequest"
-            />
+            android:textColor="#ffffff"
+            android:background="#006699" />
 
 
         <Button

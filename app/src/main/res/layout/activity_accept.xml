@@ -2,26 +2,35 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:orientation = "vertical">
 
-    <TextView android:text="@string/accepted_message" android:layout_width="wrap_content"
+    <TextView android:text="@string/accepted_message" android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textColor="#000000" />
 
-    <TextView android:text="@string/eta_message" android:layout_width="wrap_content"
+    <TextView android:text="@string/eta_message" android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:id="@+id/" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/inputnumber"
-        android:text="0"
-        android:inputType="number" />
+        android:hint="Enter ETA (in minutes)"
+        android:inputType="number"
+        android:gravity="center"
+        android:textSize="25dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update ETA"
-        android:onClick = "updateETA"/>
+        android:onClick = "updateETA"
+        android:textColor="#ffffff"
+        android:background="#006699" />
 
     <Button
         android:layout_width="match_parent"

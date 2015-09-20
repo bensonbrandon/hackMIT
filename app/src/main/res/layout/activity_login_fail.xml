@@ -5,10 +5,15 @@
     <TextView android:text="Login failed. Click to return to login screen."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
+        android:textSize="25dp"
+        android:id="@+id/"
+        android:gravity="center"
+        android:textColor="#000000" />
     <Button android:text="Try again"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick= "toLogin"/>
+        android:onClick= "toLogin"
+        android:textColor="#ffffff"
+        android:background="#006699" />
 
 </LinearLayout>

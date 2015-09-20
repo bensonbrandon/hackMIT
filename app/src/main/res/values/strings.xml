@@ -15,7 +15,7 @@
     <string name="title_activity_wait_page">Request Handling</string>
     <string name="wait_message">Processing Request. Waiting to be claimed...</string>
     <string name="accepted_message">You have accepted the request!</string>
-    <string name="eta_message">Update when you plan to arrive?</string>
+    <string name="eta_message">Update when you plan to arrive.</string>
     <string name="title_activity_accept_request">AcceptRequest</string>
 
     <string name="hello_world">Hello world!</string>

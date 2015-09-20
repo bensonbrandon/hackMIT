@@ -19,7 +19,7 @@
             android:layout_height="wrap_content" android:orientation="vertical">
 
             <EditText android:id="@+id/username" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:hint="username"
+                android:layout_height="wrap_content" android:hint="Username"
                 android:inputType="textVisiblePassword|textNoSuggestions" android:maxLines="1"
                 android:singleLine="true" />
 
@@ -35,7 +35,9 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="Log in"
                 android:textStyle="bold"
-                android:onClick="attemptLogin"/>
+                android:onClick="attemptLogin"
+                android:background="#006699"
+                android:textColor="#ffffff" />
             <Button android:id="@+id/back_to_home" style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

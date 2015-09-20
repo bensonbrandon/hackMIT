@@ -5,31 +5,47 @@
 
     <TextView android:text="If there is a medical emergency, make sure you have called 911 or MIT EMS. This app is not a replacement for professional emergency response systems." android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:textStyle="bold|italic"
+        android:textColor="#000000"
+        android:id="@+id/textView"
+        android:gravity="center" />
 
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CPR Emergency"
-        android:onClick = "toSendCPRInfo"/>
+        android:onClick = "toSendCPRInfo"
+        android:textSize="20dp"
+        android:layout_margin="5dp"
+        android:background="#006699"
+        android:textColor="#ffffff" />
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Non-CPR Emergency"
-        android:onClick = "toSendEMTInfo"/>
+        android:onClick = "toSendEMTInfo"
+        android:textSize="20dp"
+        android:layout_margin="5dp"
+        android:background="#006699"
+        android:textColor="#ffffff" />
     <Button
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Non-Urgent Medical Assistance"
-        android:onClick = "toSendMLinkInfo"/>
+        android:onClick = "toSendMLinkInfo"
+        android:textSize="20dp"
+        android:layout_margin="5dp"
+        android:background="#006699"
+        android:textColor="#ffffff" />
 
 
     <TextView android:text="If you are a volunteer responder, login here:"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000000" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -10,7 +10,8 @@
         android:name="com.google.android.gms.maps.SupportMapFragment" />
 
     <TextView android:text="@string/chief_complaint" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/complaint"
@@ -19,7 +20,8 @@
         android:hint="@string/chief_complaint_prompt"/>
 
     <TextView android:text="@string/location" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/location"
@@ -28,7 +30,8 @@
         android:hint="@string/location_prompt"/>
 
     <TextView android:text="@string/additional_info" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/details"
@@ -40,7 +43,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit and continue"
-        android:onClick= "toWait"/>
+        android:onClick= "toWait"
+        android:textColor="#ffffff"
+        android:background="#006699" />
 
     <Button
         android:layout_width="match_parent"
