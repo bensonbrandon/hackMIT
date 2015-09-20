@@ -40,6 +40,8 @@ public class SendInfoActivity extends FragmentActivity {
     }
 
     public void toWait(View view) {
+
+        boolean success = true;
         // get info from text boxes
         EditText complaint = (EditText)findViewById(R.id.complaint);
         String complaintString = complaint.getText().toString();
@@ -56,6 +58,7 @@ public class SendInfoActivity extends FragmentActivity {
         request.put("accepted", false);
         request.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {
+
                 if (e == null) {
                     // Saved successfully.
                     // send push notification
@@ -72,16 +75,21 @@ public class SendInfoActivity extends FragmentActivity {
                         push.sendInBackground();
                     } catch (Exception exc) {
                         Log.d("SendInfoActivity", "Failed to create request data for push notification.");
+
                     }
                 } else {
                     // The save failed.
                     Log.d("SendInfoActivity", "Error updating user data: " + e);
+
                 }
+
             }
         });
 
         Intent intent = new Intent(this, WaitActivity.class);
         startActivity(intent);
+        finish();
+
     }
     public void toMain(View view){
         Intent intent = new Intent(this, MainActivity.class);
