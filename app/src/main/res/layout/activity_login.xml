@@ -35,7 +35,7 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="Log in"
                 android:textStyle="bold"
-                android:onClick="toMain"/>
+                android:onClick="attemptLogin"/>
             <Button android:id="@+id/back_to_home" style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

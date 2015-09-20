@@ -56,5 +56,7 @@ public class SendInfoActivity extends Activity {
     public void toMain(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
+
 }
