@@ -13,7 +13,7 @@
         android:textSize="25dp"
         android:gravity="center"
         android:textColor="#000000"
-        android:id="@+id/" />
+        />
 
     <EditText
         android:layout_width="match_parent"
