@@ -14,8 +14,8 @@
     <string name="additional_info_prompt">Add more details here</string>
     <string name="title_activity_wait_page">Request Handling</string>
     <string name="wait_message">Processing Request. Waiting to be claimed...</string>
-    <string name="accepted_message">You request has been accepted!</string>
-    <string name="eta_message">Help is expected to arrive in... minutes</string>
+    <string name="accepted_message">You have accepted the request!</string>
+    <string name="eta_message">In how many minutes do you expect to arrive?</string>
     <string name="title_activity_accept_request">AcceptRequest</string>
 
     <string name="hello_world">Hello world!</string>

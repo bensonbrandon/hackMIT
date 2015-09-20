@@ -46,18 +46,13 @@
         android:id="@+id/additionalinfo"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter ETA:"
-        />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="About how many minutes until you arrive?"
         android:id="@+id/minutes"
-        />
+        android:text="0"
+        android:inputType="number" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,6 +63,7 @@
             android:layout_height="wrap_content"
             android:text="Accept"
             android:layout_weight="1"
+            android:onClick="acceptRequest"
             />
 
 
@@ -76,6 +72,7 @@
             android:layout_height="wrap_content"
             android:text="Reject"
             android:layout_weight="1"
+            android:onClick="rejectRequest"
             />
     </LinearLayout>
 </LinearLayout>

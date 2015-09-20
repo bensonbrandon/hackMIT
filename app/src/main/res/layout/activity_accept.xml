@@ -10,11 +10,18 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputnumber"
+        android:text="0"
+        android:inputType="number" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update ETA"
-        android:onClick = "toMain"/>
+        android:onClick = "updateETA"/>
 
     <Button
         android:layout_width="match_parent"

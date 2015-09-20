@@ -31,10 +31,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class SendInfoActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    Context ctx = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ctx = this;
         setContentView(R.layout.activity_sendinfo);
         setUpMapIfNeeded();
     }
@@ -56,6 +58,7 @@ public class SendInfoActivity extends FragmentActivity {
         request.put("location", locationString);
         request.put("details", detailsString);
         request.put("accepted", false);
+        request.put("valid", true);
         request.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {
 
@@ -73,22 +76,23 @@ public class SendInfoActivity extends FragmentActivity {
                         Log.d("PushNotification", data.toString());
                         push.setData(data);
                         push.sendInBackground();
+
+                        Intent intent = new Intent(ctx, WaitActivity.class);
+                        intent.putExtra("requestId", request.getObjectId());
+                        startActivity(intent);
+                        finish();
                     } catch (Exception exc) {
                         Log.d("SendInfoActivity", "Failed to create request data for push notification.");
-
                     }
                 } else {
                     // The save failed.
                     Log.d("SendInfoActivity", "Error updating user data: " + e);
-
+                    request.put("valid", false);
                 }
 
             }
         });
 
-        Intent intent = new Intent(this, WaitActivity.class);
-        startActivity(intent);
-        finish();
 
     }
     public void toMain(View view){

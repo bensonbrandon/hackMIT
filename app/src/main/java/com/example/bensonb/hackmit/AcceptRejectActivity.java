@@ -11,12 +11,18 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import org.json.JSONObject;
 
@@ -26,29 +32,92 @@ import org.json.JSONObject;
 public class AcceptRejectActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    String requestId = null;
+    Context ctx = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ctx = this;
         setContentView(R.layout.activity_acceptreject);
-        String requestId = null;
         try {
             JSONObject json = new JSONObject(getIntent().getStringExtra("com.parse.Data"));
             requestId = json.getString("id");
             Log.d("AcceptRejectActivity", "id is " + requestId);
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Request");
+            // Retrieve the object by id
+            query.getInBackground(requestId, new GetCallback<ParseObject>() {
+                public void done(ParseObject request, ParseException e) {
+                    if (e == null) {
+                        if (!request.getBoolean("accepted") && request.getBoolean("valid")) {
+                            updateFields(request);
+                        }
+                    }
+                }
+            });
         } catch (Exception e) {
             Log.d("AcceptRejectActivity", "Failed to get intent data from push notification.");
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }
+
         setUpMapIfNeeded();
+    }
+
+    public void updateFields(ParseObject request) {
+        String location = request.getString("location");
+        String details = request.getString("details");
+        String issue = request.getString("issue");
+
+        TextView locationBox = (TextView)findViewById(R.id.patientlocation);
+        locationBox.setText(location);
+        TextView detailBox = (TextView)findViewById(R.id.additionalinfo);
+        detailBox.setText(details);
+        TextView issueBox = (TextView)findViewById(R.id.complaint);
+        issueBox.setText(issue);
     }
     public void toMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
+
+    public void acceptRequest(final View view) {
+        if (requestId == null) {
+            Log.d("AcceptReject", "no request to accept");
+            toMain(view);
+            finish();
+        }
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Request");
+        // Retrieve the object by id
+        query.getInBackground(requestId, new GetCallback<ParseObject>() {
+            public void done(ParseObject request, ParseException e) {
+                if (e == null) {
+                    if (request.getBoolean("accepted") || !request.getBoolean("valid")) {
+                        Log.d("AcceptReject", "request already accepted or cancelled");
+                    } else {
+                        request.put("accepted", true);
+                        EditText etaBox = (EditText) findViewById(R.id.minutes);
+                        final Integer eta = Integer.parseInt(etaBox.getText().toString());
+                        if (eta > 0) {
+                            request.put("eta", eta);
+                        }
+                        request.saveInBackground();
+                        // set acceptor to current user username???
+                        Intent intent = new Intent(ctx, Accept.class);
+                        intent.putExtra("requestId", request.getObjectId());
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
+    }
+
+    public void rejectRequest(View view) {
+        toMain(view);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
