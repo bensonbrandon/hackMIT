@@ -22,7 +22,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     }
-    public void toMain(View view) {
+    public void attemptLogin(View view) {
         EditText username = (EditText)findViewById(R.id.username);
         String userString = username.getText().toString();
         EditText password = (EditText)findViewById(R.id.password);
@@ -42,13 +42,23 @@ public class LoginActivity extends Activity {
                     if (user.getBoolean("isCPR")) {
                         ParsePush.subscribeInBackground("CPR");
                     }
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.
+                    Intent intent = new Intent(getApplicationContext(), LoginFailActivity.class);
+                    startActivity(intent);
                     Log.d("Login", "User authentication failed.");
+                    finish();
                 }
             }
         });
+    }
+
+    public void toMain(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

@@ -8,7 +8,7 @@ import android.view.View;
 /**
  * Created by bensonb on 9/19/2015.
  */
-public class WaitActivity extends Activity {
+public class AcceptRejectActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +20,3 @@ public class WaitActivity extends Activity {
         finish();
     }
 }
-
-
