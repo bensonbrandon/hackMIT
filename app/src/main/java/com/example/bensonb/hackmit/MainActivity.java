@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
         Parse.enableLocalDatastore(this);
 
         Parse.initialize(this, "7uSbWIp5mdcf1dgUnYiEkgyL1rL6BeBz5bYvkoRA", "AAB4OWTqlgWy38bN1mZXWIFyRxbkdphbwXFc3uGM");
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

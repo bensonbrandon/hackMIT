@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Patient's Chief Complaint"
-        android:id="@id/complaint"
+        android:id="@+id/complaint"
         />
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Patient's Location"
-        android:id="@id/location"
+        android:id="@+id/patientlocation"
         />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Patient's Additional Info"
-        android:id="@id/location"
+        android:id="@+id/additionalinfo"
         />
 
     <TextView
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="About how many minutes until you arrive?"
-        android:id="@id/minutes"
+        android:id="@+id/minutes"
         />
 
     <LinearLayout
