@@ -23,7 +23,20 @@ public class Accept extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accept);
 
-        //handle invalidated requests?
+        String requestId = getIntent().getStringExtra("requestId");
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Request");
+        // Retrieve the object by id
+        query.getInBackground(requestId, new GetCallback<ParseObject>() {
+            public void done(ParseObject request, ParseException e) {
+                final ParseObject requestObject = request;
+                if (e == null) {
+                    EditText etaBox = (EditText) findViewById(R.id.inputnumber);
+                    Integer eta = request.getInt("eta");
+                    etaBox.setText(eta);
+                }
+            }
+        });
     }
 
     @Override
@@ -49,6 +62,7 @@ public class Accept extends AppCompatActivity {
                 final ParseObject requestObject = request;
                 if (e == null) {
                     request.put("eta", eta);
+                    request.saveInBackground();
                 }
             }
         });

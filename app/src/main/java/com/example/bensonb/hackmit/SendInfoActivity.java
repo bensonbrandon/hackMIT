@@ -72,7 +72,11 @@ public class SendInfoActivity extends FragmentActivity {
                     try {
                         JSONObject data = new JSONObject();
                         data.put("id", request.getObjectId());
-                        data.put("alert", "urgent request at " + locationString);
+                        String alert = "urgent request at " + locationString;
+                        if (channel == "Medlink") {
+                            alert = "non-" + alert;
+                        }
+                        data.put("alert", alert);
                         Log.d("PushNotification", data.toString());
                         push.setData(data);
                         push.sendInBackground();
