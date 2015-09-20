@@ -14,6 +14,10 @@ public class WaitActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait);
     }
+    public void toMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
 }
 

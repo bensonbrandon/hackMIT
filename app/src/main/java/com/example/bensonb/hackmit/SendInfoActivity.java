@@ -18,4 +18,8 @@ public class SendInfoActivity extends Activity {
         Intent intent = new Intent(this, WaitActivity.class);
         startActivity(intent);
     }
+    public void toMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
